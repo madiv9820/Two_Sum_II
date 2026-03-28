@@ -1,56 +1,52 @@
-# [🎯 Two Sum II — Sorted Array Challenge](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/?envType=study-plan-v2&envId=top-interview-150)
+# Two Sum II — Binary Search Approach 🔍
+### 💡 Intuition
+Since the array is **sorted**, we don’t need to check every possible pair.
+- For each number **`numbers[i]`**, we can calculate the number we need (**`target - numbers[i]`**).
+- Instead of scanning the rest of the array linearly, we can use **binary search** to quickly find the complement.
+- This reduces unnecessary comparisons and leverages the sorted property of the array. ⚡
 
-You’re given a **1-indexed** array of integers **`numbers`** 📊, already sorted in **non-decreasing order**. Your task is to find **two distinct elements** whose sum equals a given **`target`** 🎯.
+Think of it as **“hunting your missing number in a sorted lineup**” rather than guessing every pair. 🎯
 
-Let those elements be:
-- **`numbers[index1]`**
-- **`numbers[index2]`**
+### ⚡ Approach – Binary Search Inside a Loop
+1. 🔁 Iterate through each number in the array.
+2. 🧮 Compute the complement:
+    ```
+    lostNumber = target - numbers[currentIndex]
+    ```
+3. 🔍 Perform **binary search** on the **right side of the array** (from **`currentIndex + 1`** to end) to find **`lostNumber`**.
+4. ✅ If found, return the **1-based indices** immediately.
 
-with the condition:
-👉 **`1 <= index1 < index2 <= numbers.length`**
-
-### 🧩 What You Need to Do
-
-Return the indices of these two numbers as:
+### 📝 Pseudocode
 ```
-[index1, index2]
+function twoSum(numbers, target):
+    for currentIndex from 0 to numbers.length-1:
+        lostNumber = target - numbers[currentIndex]
+        left = currentIndex + 1
+        right = numbers.length - 1
+        
+        # Binary Search for lostNumber
+        while left <= right:
+            mid = left + (right - left) / 2
+            if numbers[mid] == lostNumber:
+                return [currentIndex + 1, mid + 1]  # 1-based indices
+            else if numbers[mid] < lostNumber:
+                left = mid + 1
+            else:
+                right = mid - 1
+                
+    return [-1, -1]  # No solution found
 ```
-📌 Both indices should be **1-based** (not 0-based).
 
-### ⚠️ Important Rules
-- ✅ Exactly **one valid solution** exists.
-- 🚫 You **cannot reuse** the same element.
-- ⚡ Your solution must use **constant extra space** (O(1)).
+### ⏱️ Complexity Analysis
+| **Aspect** | **Complexity**   | **Explanation**                                          |
+| ------ | ------------ | ---------------------------------------------------- |
+| Time   | **`O(n log n)`** | Iterate through n numbers × binary search **`O(log n)`** |
+| Space  | **`O(1)`**       | Constant extra space (excluding output)              |
 
-### 📌 Examples
-#### Example 1
-```
-Input:  numbers = [2, 7, 11, 15], target = 9  
-Output: [1, 2]
-```
-💡 Because 2 + 7 = 9
-
-#### Example 2
-```
-Input:  numbers = [2, 3, 4], target = 6  
-Output: [1, 3]
-```
-💡 Because 2 + 4 = 6
-
-#### Example 3
-```
-Input:  numbers = [-1, 0], target = -1  
-Output: [1, 2]
-```
-💡 Because -1 + 0 = -1
-
-### 📏 Constraints
-- 🔢 `2 <= numbers.length <= 3 * 10⁴`
-- 🔢 `-1000 <= numbers[i] <= 1000`
-- 📈 Array is **sorted in non-decreasing order**
-- 🎯 `-1000 <= target <= 1000`
-- ✅ Exactly **one solution guaranteed**
-
-This problem is all about leveraging the **sorted nature of the array** while respecting strict constraints 🚀
-
+### 💡 Key Takeaways
+- Works only on **sorted arrays**.
+- Returns **1-based indices**.
+- Excellent for practicing **binary search in iterative loops**.
+- Handles **positive, negative, duplicate, and edge case numbers**.
+- Demonstrates how **divide-and-conquer** can reduce search time efficiently. 🧩
 ---
