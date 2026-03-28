@@ -1,56 +1,54 @@
-# [🎯 Two Sum II — Sorted Array Challenge](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/?envType=study-plan-v2&envId=top-interview-150)
+# Two Sum II — Two Pointer Approach 👈👉
+### 💡 Intuition
 
-You’re given a **1-indexed** array of integers **`numbers`** 📊, already sorted in **non-decreasing order**. Your task is to find **two distinct elements** whose sum equals a given **`target`** 🎯.
+Since the array is **sorted**, we can use **two pointers** to find the pair efficiently:
+- Start with one pointer at the **beginning** and another at the **end**.
+- Calculate the sum of the two numbers.
+- If the sum is **less than the target**, move the left pointer to the right.
+- If the sum is **greater than the target**, move the right pointer to the left.
+- If the sum equals the target, we’ve found the solution. ✅
 
-Let those elements be:
-- **`numbers[index1]`**
-- **`numbers[index2]`**
+Think of it as **“closing the gap from both ends”** until you hit the target. 🎯
 
-with the condition:
-👉 **`1 <= index1 < index2 <= numbers.length`**
+### ⚡ Approach
+1. 🔁 Initialize two pointers: **`left = 0`** and **`right = n - 1`**.
+2. 🧮 While **`left < right`**:
+    - Calculate **`currentSum = numbers[left] + numbers[right]`**.
+    - If **`currentSum == target`**, return [**`left+1, right+1]`** (1-based).
+    - If **`currentSum < target`**, increment **`left`**.
+    - If **`currentSum > target`**, decrement **`right`**.
+3. ✅ Return the result.
 
-### 🧩 What You Need to Do
-
-Return the indices of these two numbers as:
+### 📝 Pseudocode
 ```
-[index1, index2]
-```
-📌 Both indices should be **1-based** (not 0-based).
+function twoSum(numbers, target):
+    left = 0
+    right = numbers.length - 1
 
-### ⚠️ Important Rules
-- ✅ Exactly **one valid solution** exists.
-- 🚫 You **cannot reuse** the same element.
-- ⚡ Your solution must use **constant extra space** (O(1)).
+    while left < right:
+        currentSum = numbers[left] + numbers[right]
 
-### 📌 Examples
-#### Example 1
-```
-Input:  numbers = [2, 7, 11, 15], target = 9  
-Output: [1, 2]
-```
-💡 Because 2 + 7 = 9
+        if currentSum == target:
+            return [left+1, right+1]  # 1-based indices
+        else if currentSum < target:
+            left += 1
+        else:
+            right -= 1
 
-#### Example 2
+    return [-1, -1]  # No solution found
 ```
-Input:  numbers = [2, 3, 4], target = 6  
-Output: [1, 3]
-```
-💡 Because 2 + 4 = 6
 
-#### Example 3
-```
-Input:  numbers = [-1, 0], target = -1  
-Output: [1, 2]
-```
-💡 Because -1 + 0 = -1
+### ⏱️ Complexity Analysis
+| **Aspect** | **Complexity** | **Explanation**                             |
+| ------ | ---------- | --------------------------------------- |
+| Time   | **`O(n)`**     | Single pass using two pointers          |
+| Space  | **`O(1)`**     | Constant extra space (excluding output) |
 
-### 📏 Constraints
-- 🔢 `2 <= numbers.length <= 3 * 10⁴`
-- 🔢 `-1000 <= numbers[i] <= 1000`
-- 📈 Array is **sorted in non-decreasing order**
-- 🎯 `-1000 <= target <= 1000`
-- ✅ Exactly **one solution guaranteed**
-
-This problem is all about leveraging the **sorted nature of the array** while respecting strict constraints 🚀
+### 💡 Key Takeaways
+- Works only for **sorted arrays**.
+- Returns **1-based indices**.
+- ⬆️ Simpler, faster, and cleaner than binary search inside a loop.
+- Handles **positive, negative, duplicates, and edge cases** efficiently.
+- Excellent for learning **two-pointer pattern** – a fundamental technique in array problems. 🧩
 
 ---
