@@ -53,4 +53,20 @@ Output: [1, 2]
 
 This problem is all about leveraging the **sorted nature of the array** while respecting strict constraints 🚀
 
+## Approaches 🚴🏽‍♂️
+| Feature                  | [**Binary Search 🔍**](https://github.com/madiv9820/Two_Sum_II/tree/Approach_01-Binary_Search)                                 | [**Two Pointers 👈👉**](https://github.com/madiv9820/Two_Sum_II/tree/Approach_02-Two_Pointers)                               |
+| ------------------------ | ------------------------------------------------ | ----------------------------------------------- |
+| **Idea**                 | Search for missing number in sorted subarray 🕵️ | Move left & right pointers to close the gap 🎯  |
+| **Time ⏱️**              | **`O(n log n)` 🐢**                                    | **`O(n)` ⚡**                                          |
+| **Space 🧠**             | **`O(1)` 📦**                                          | **`O(1)` 📦**                                          |
+| **Implementation ✍️**    | Moderate – nested loop + search 🔄               | Simple – single while loop ✔️                   |
+| **Array Requirement 📚** | Sorted ✅                                         | Sorted ✅                                        |
+| **Performance 🚀**       | Slower for large arrays 🐌                       | Fastest for sorted arrays ⚡                     |
+| **Best Use Case 🎯**     | Practice binary search 🕵️                       | Practical & optimal for interviews ✅            |
+| **Intuition 🧩**         | “Hunt for the missing number” 🔎                 | “Close the gap from both ends” 🔗               |
+| **Edge Cases ❄️**        | Handles duplicates, negatives, positives ✅       | Handles duplicates, negatives, positives ✅      |
+| **Interview Tip 💡**     | Shows mastery of binary search 🔍                | Shows understanding of two-pointer pattern 👈👉 |
+
+**⚠️ Note:** There are other approaches like **Brute Force ⚡** or **Hash Map 🗂️**, but these **don’t take advantage of the array being sorted** and are either slower (**`O(n²)`**) or use extra memory (**`O(n)`**).
+
 ---
