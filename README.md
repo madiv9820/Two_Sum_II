@@ -54,7 +54,7 @@ Output: [1, 2]
 This problem is all about leveraging the **sorted nature of the array** while respecting strict constraints 🚀
 
 ## Approaches 🚴🏽‍♂️
-| Feature                  | [**Binary Search 🔍**](https://github.com/madiv9820/Two_Sum_II/tree/Approach_01-Binary_Search)                                 | [**Two Pointers 👈👉**](https://github.com/madiv9820/Two_Sum_II/tree/Approach_02-Two_Pointers)                               |
+| Feature                  | [**Binary Search**](https://github.com/madiv9820/Two_Sum_II/tree/Approach_01-Binary_Search)  🔍                                 | [**Two Pointers**](https://github.com/madiv9820/Two_Sum_II/tree/Approach_02-Two_Pointers)  👈👉                               |
 | ------------------------ | ------------------------------------------------ | ----------------------------------------------- |
 | **Idea**                 | Search for missing number in sorted subarray 🕵️ | Move left & right pointers to close the gap 🎯  |
 | **Time ⏱️**              | **`O(n log n)` 🐢**                                    | **`O(n)` ⚡**                                          |
